@@ -1,19 +1,34 @@
-def check_prime(num):
-	for i in range(2, num):
-		if num % i == 0:
-			return False
-	return True
+my_list_formatted = []
+
+with open('class_grades.txt') as my_file:
+    my_list  = my_file.readlines()
+   
+
+def convert_score_to_letter(score):
+    if score >= 90:
+    	return "A"
+    elif 90>score>=80:
+    	return "B"
+    elif 80>score>=70:
+    	return "C"
+    elif 70>score>=60:
+    	return "D"
+    else:
+    	return "F"
+
+
+def process_file_to_list(my_list):
+    for i in my_list:
+    	stripped_string = int(i.strip().strip('\xef\xbb\xbf'))
+    	my_list_formatted.append(stripped_string)
+    return my_list_formatted
 
 def main():
-	while (True):
-		user_input = raw_input("\nPlease type x if you like to exit.\nPlease enter a number you would like to check: ")
-		if user_input.lower() == "x":
-			break
-		else:
-			if check_prime(int(user_input)) == True:
-				print "It is a prime number!"
-			else:
-				print "It is not a prime number."
+    global my_list_formatted
+    for i in process_file_to_list(my_list):
+    	graded = convert_score_to_letter(i)
 
-if __name__ == "__main__":
-	main()
+        print i,"is a",graded 
+
+if __name__ == '__main__':
+   main()
