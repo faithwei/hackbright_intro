@@ -45,27 +45,35 @@ def display_all_contacts():
 
 def update_contact(first_name,last_name):
 	global addressbook
-
+	#Raw input for first and last names
 	contact_update = search_contact(first_name,last_name)
-	while True:
-		update_menu()
-		try:
-			menu_option = int(raw_input("Select one option: "))
-		except ValueError:
-			menu_option = None
+	
+	if contact_update == None:
+		print "First name and Last name is not in your Contact List."
+	else
+		while True:
+			update_menu()
+			try:
+				menu_option = int(raw_input("Select one option: "))
+			except ValueError:
+				menu_option = None
 
-		if menu_option == 1:
-			# Update first name
-			create_contact("faith","ng","415-123-4567")
-		elif menu_option == 2:
+			if menu_option == 1:
+				# Update first name
+				new_first_name = raw_input
+				if len(new_first_name) > 0:
+					contact_update.change_first_name(new_first_name)
+				else:
+					print "Invalid input"
+			elif menu_option == 2:
 
-		elif menu_option == 3:
+			elif menu_option == 3:
 
-		elif menu_option == 4:
+			elif menu_option == 4:
 
-		elif menu_option == 5:
+			elif menu_option == 5:
 
-		elif menu_option == 6:
+			elif menu_option == 6:
 
 index
 def update_menu():
